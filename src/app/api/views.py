@@ -43,7 +43,26 @@ def tasks(request):
 def worklogs(request):    
     return DBSession.query(Worklog).all()
     
+@view_config(route_name='worklog', request_method='POST', renderer='json')
+def post_worklog(request):    
+    data = request.json_body['worklog']
+    worklog = Worklog()
+    
+    worklog.note = data['note']
+    worklog.time_spent = data['timeSpent']
+    worklog.task_id = data['taskId']
+    worklog.work_date = data['workDate']
+    worklog.is_billable = data['isBillable']
+    
+    DBSession.add(worklog)
+    
+    return True
+
+@view_config(route_name='worklog', request_method='GET', renderer='json')
+def get_worklog(request):    
+    return 'Hello World'
+            
 @notfound_view_config()
 def notfound(request):
-    return Response('Not Found, dude', status='404 Not Found')    
+    return Response('NOT FOUND!', status='404 Not Found')    
     

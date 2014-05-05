@@ -1,1 +1,14 @@
-Hello World
+<div ng-controller="HomeCtrl">
+    <div>
+        Add Worklog
+    </div>
+    <div class="row">
+        <div class="col-sm-2"> <input type="date" ng-model="home.worklog.workDate" class="form-control"/> </div>
+        <div class="col-sm-2"> <input type="number" ng-model="home.worklog.taskId"  class="form-control"/> </div>
+        <div class="col-sm-2"> <input type="number" ng-model="home.worklog.timeSpent" class="form-control"/> </div>
+        <div class="col-sm-2"> <input type="text" ng-model="home.worklog.note" class="form-control"/> </div>
+        <div class="col-sm-2"> <input type="checkbox" ng-model="home.worklog.isBillable" /> </div>    
+        <div class="col-sm-2"> <button class="btn" ng-click="home.saveWorklog()">Save</button> </div>    
+    </div>
+</div>
+

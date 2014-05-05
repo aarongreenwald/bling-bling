@@ -15,12 +15,14 @@ def main(global_config, **settings):
         
      #for the main entry point to the SPA
     config.add_route('app', '/') 
-    #this sets up the ui folder to be served from the root, so things like /common/...js work    
-    #config.add_static_view('', 'ui', cache_max_age = 0) 
+        
+    config.add_route('clients', '/api/clients')    
+    config.add_route('tasks', '/api/tasks')
+    config.add_route('worklogs', '/api/worklogs')
+    config.add_route('worklog', '/api/worklog')
     
-    config.add_route('clients', 'api/clients')    
-    config.add_route('tasks', 'api/tasks')
-    config.add_route('worklogs', 'api/worklogs')
+    #this sets up the ui folder to be served from the root, so things like /common/...js work    
+    config.add_static_view('', 'ui', cache_max_age = 0) 
         
     config.scan()
     return config.make_wsgi_app()

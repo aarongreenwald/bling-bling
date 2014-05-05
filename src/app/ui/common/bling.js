@@ -1,5 +1,6 @@
 var bling = angular.module('bling', [
-    'ui.router'
+    'ui.router',
+    'bling.home'
     ])
      
 bling.config(function($stateProvider, $urlRouterProvider) {
@@ -8,8 +9,8 @@ bling.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('home', {
       url: "/",
-      templateUrl: "home/home.html"
+      templateUrl: "home/home.html"      
     })
 })
 
-
+bling.home = angular.module('bling.home', [])
